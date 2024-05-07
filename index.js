@@ -1,14 +1,4 @@
-const selectionSort = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    let minIndex = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[minIndex]) {
-        minIndex = j;
-      }
-    }
-    if (minIndex !== i) {
-      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
-    }
-  }
-  return arr;
-};
+const chunk = (arr, size) =>
+  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+    arr.slice(i * size, i * size + size),
+  );
